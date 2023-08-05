@@ -1,0 +1,39 @@
+.taskArea {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.taskList {
+  border-radius: 10px;
+  background: #e0e0e0;
+  box-shadow: inset 20px 20px 60px #bebebe,
+              inset -20px -20px 60px #ffffff;
+  width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.task {
+  border-radius: 5px;
+  background: #2e3436;
+  box-shadow:  3px 3px 5px #272c2e,
+              inset -3px -3px 5px #353c3e;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: flex-start;
+}
+
+.task > p {
+  margin: 5px 0px;
+}
+
+.task > button {
+  margin: 5px 0px;
+  align-self: flex-end;
+}
