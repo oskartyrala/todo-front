@@ -34,8 +34,9 @@ export default function Task({ task, setKey }: TaskProps): JSX.Element {
 
   return (
     <div className="task">
-      <p>{task.title}</p>
-      <p>{task.description}</p>
+      <p>Title: {task.title}</p>
+      <p>Description: {task.description}</p>
+      {task.due && <p>Due: {task.due}</p>}
       {task.status !== "in progress" && (
         <button
           value="in progress"

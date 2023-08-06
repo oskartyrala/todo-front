@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+// import getYYMMDD from "./utils/getYYYYMMDD";
 
 interface AddTaskProps {
   setKey: React.Dispatch<React.SetStateAction<number>>;
@@ -8,6 +9,7 @@ interface AddTaskProps {
 export default function AddTask({ setKey }: AddTaskProps): JSX.Element {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [dueDate, setDueDate] = useState("");
 
   const baseUrl =
     process.env.NODE_ENV === "production"
@@ -15,14 +17,17 @@ export default function AddTask({ setKey }: AddTaskProps): JSX.Element {
       : "http://localhost:4000";
 
   const handleAdd = async () => {
-    await axios.post(`${baseUrl}/tasks`, {
+    const res = await axios.post(`${baseUrl}/tasks`, {
       title,
       description,
       status: "not done",
+      due: dueDate,
     });
-    const currentEnv = process.env.NODE_END;
-    console.log(`current environment is ${currentEnv}`);
+    console.log(res);
     setKey((prev) => prev + 1);
+    setTitle("");
+    setDescription("");
+    setDueDate("");
   };
 
   return (
@@ -38,6 +43,14 @@ export default function AddTask({ setKey }: AddTaskProps): JSX.Element {
         value={description}
         placeholder="Task description"
         onChange={(e) => setDescription(e.target.value)}
+      ></input>
+      <input
+        type="date"
+        value={dueDate}
+        onChange={(e) => {
+          console.log(e.target.value);
+          setDueDate(e.target.value);
+        }}
       ></input>
       <button onClick={handleAdd}>Add</button>
     </>
