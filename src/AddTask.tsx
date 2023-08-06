@@ -11,7 +11,7 @@ export default function AddTask({ setKey }: AddTaskProps): JSX.Element {
 
   const baseUrl =
     process.env.NODE_ENV === "production"
-      ? "https://oskar-todo-server.onrender.com/"
+      ? "https://oskar-todo-server.onrender.com"
       : "http://localhost:4000";
 
   const handleAdd = async () => {

@@ -9,7 +9,7 @@ interface TaskProps {
 export default function Task({ task, setKey }: TaskProps): JSX.Element {
   const baseUrl =
     process.env.NODE_ENV === "production"
-      ? "https://oskar-todo-server.onrender.com/"
+      ? "https://oskar-todo-server.onrender.com"
       : "http://localhost:4000";
 
   const handleButton = async (status: string) => {
