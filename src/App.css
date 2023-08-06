@@ -6,8 +6,7 @@
 .taskList {
   border-radius: 10px;
   background: #e0e0e0;
-  box-shadow: inset 20px 20px 60px #bebebe,
-              inset -20px -20px 60px #ffffff;
+  box-shadow: inset 20px 20px 60px #bebebe, inset -20px -20px 60px #ffffff;
   width: 400px;
 
   display: flex;
@@ -19,8 +18,7 @@
 .task {
   border-radius: 5px;
   background: #2e3436;
-  box-shadow:  3px 3px 5px #272c2e,
-              inset -3px -3px 5px #353c3e;
+  box-shadow: 3px 3px 5px #272c2e, inset -3px -3px 5px #353c3e;
   color: white;
 
   display: flex;
