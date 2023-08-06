@@ -11,11 +11,11 @@ export default function AddTask({ setKey }: AddTaskProps): JSX.Element {
 
   const baseUrl =
     process.env.NODE_ENV === "production"
-      ? "oskar-todo-server.onrender.com"
-      : "localhost:4000";
+      ? "https://oskar-todo-server.onrender.com/"
+      : "http://localhost:4000";
 
   const handleAdd = async () => {
-    await axios.post(`http://${baseUrl}/tasks`, {
+    await axios.post(`${baseUrl}/tasks`, {
       title,
       description,
       status: "not done",

@@ -9,12 +9,12 @@ interface TaskProps {
 export default function Task({ task, setKey }: TaskProps): JSX.Element {
   const baseUrl =
     process.env.NODE_ENV === "production"
-      ? "oskar-todo-server.onrender.com"
-      : "localhost:4000";
+      ? "https://oskar-todo-server.onrender.com/"
+      : "http://localhost:4000";
 
   const handleButton = async (status: string) => {
     try {
-      await axios.patch(`http://${baseUrl}/tasks/${task.id}`, {
+      await axios.patch(`${baseUrl}/tasks/${task.id}`, {
         status: status,
       });
       setKey((prev) => prev + 1);
@@ -25,7 +25,7 @@ export default function Task({ task, setKey }: TaskProps): JSX.Element {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://${baseUrl}/tasks/${task.id}`);
+      await axios.delete(`${baseUrl}/tasks/${task.id}`);
       setKey((prev) => prev + 1);
     } catch (error) {
       console.error(error);

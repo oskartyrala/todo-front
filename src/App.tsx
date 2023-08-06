@@ -17,13 +17,13 @@ function App(): JSX.Element {
 
   const baseUrl =
     process.env.NODE_ENV === "production"
-      ? "oskar-todo-server.onrender.com"
-      : "localhost:4000";
+      ? "https://oskar-todo-server.onrender.com/"
+      : "http://localhost:4000";
 
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const data = await axios.get(`http://${baseUrl}/tasks`);
+        const data = await axios.get(`${baseUrl}/tasks`);
         setTaskList(data.data);
       } catch (error) {
         console.error(error);
