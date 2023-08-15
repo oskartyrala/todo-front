@@ -8,10 +8,10 @@ import Sorting from "./Sorting";
 import filterTasks from "./utils/filterTasks";
 
 export interface ITask {
+  id: number;
   title: string;
   description: string;
   status: "done" | "not done" | "in progress";
-  id: number;
   due: string;
   created: number;
 }
@@ -24,7 +24,7 @@ function App(): JSX.Element {
 
   const baseUrl =
     process.env.NODE_ENV === "production"
-      ? "https://oskar-todo-server.onrender.com"
+      ? "https://todo-server-476z.onrender.com"
       : "http://localhost:4000";
 
   const today = new Date();
@@ -43,8 +43,9 @@ function App(): JSX.Element {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const data = await axios.get(`${baseUrl}/tasks`);
-        setTaskList(data.data);
+        const allTasks = await axios.get(`${baseUrl}/tasks`);
+
+        setTaskList(allTasks.data);
       } catch (error) {
         console.error(error);
       }

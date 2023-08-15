@@ -9,13 +9,13 @@ interface TaskProps {
 export default function Task({ task, setKey }: TaskProps): JSX.Element {
   const baseUrl =
     process.env.NODE_ENV === "production"
-      ? "https://oskar-todo-server.onrender.com"
+      ? "https://todo-server-476z.onrender.com"
       : "http://localhost:4000";
 
   const handleButton = async (status: string) => {
     try {
-      await axios.patch(`${baseUrl}/tasks/${task.id}`, {
-        status: status,
+      await axios.patch(`${baseUrl}/tasks/${task.id}/status`, {
+        status,
       });
       setKey((prev) => prev + 1);
     } catch (error) {
