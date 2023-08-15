@@ -1,5 +1,6 @@
 import { ITask } from "./App";
 import axios from "axios";
+import getYYMMDD from "./utils/getYYYYMMDD";
 
 interface TaskProps {
   task: ITask;
@@ -36,7 +37,7 @@ export default function Task({ task, setKey }: TaskProps): JSX.Element {
     <div className="task">
       <p>Title: {task.title}</p>
       <p>Description: {task.description}</p>
-      {task.due && <p>Due: {task.due}</p>}
+      {task.due && <p>Due: {getYYMMDD(task.due)}</p>}
       {task.status !== "in progress" && (
         <button
           value="in progress"
