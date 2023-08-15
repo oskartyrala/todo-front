@@ -24,7 +24,7 @@ function App(): JSX.Element {
 
   const baseUrl =
     process.env.NODE_ENV === "production"
-      ? "https://oskar-todo-server.onrender.com"
+      ? "https://todo-server-476z.onrender.com"
       : "http://localhost:4000";
 
   const today = new Date();
