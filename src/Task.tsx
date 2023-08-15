@@ -14,8 +14,8 @@ export default function Task({ task, setKey }: TaskProps): JSX.Element {
 
   const handleButton = async (status: string) => {
     try {
-      await axios.patch(`${baseUrl}/tasks/${task.id}`, {
-        status: status,
+      await axios.patch(`${baseUrl}/tasks/${task.id}/status`, {
+        status,
       });
       setKey((prev) => prev + 1);
     } catch (error) {

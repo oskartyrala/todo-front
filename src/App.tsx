@@ -8,10 +8,10 @@ import Sorting from "./Sorting";
 import filterTasks from "./utils/filterTasks";
 
 export interface ITask {
+  id: number;
   title: string;
   description: string;
   status: "done" | "not done" | "in progress";
-  id: number;
   due: string;
   created: number;
 }
@@ -43,8 +43,8 @@ function App(): JSX.Element {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const data = await axios.get(`${baseUrl}/tasks`);
-        setTaskList(data.data);
+        const data: ITask[] = await axios.get(`${baseUrl}/tasks`);
+        setTaskList(data);
       } catch (error) {
         console.error(error);
       }

@@ -20,7 +20,6 @@ export default function AddTask({ setKey }: AddTaskProps): JSX.Element {
     const res = await axios.post(`${baseUrl}/tasks`, {
       title,
       description,
-      status: "not done",
       due: dueDate,
     });
     console.log(res);
