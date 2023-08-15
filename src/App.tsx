@@ -43,8 +43,9 @@ function App(): JSX.Element {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const data: ITask[] = await axios.get(`${baseUrl}/tasks`);
-        setTaskList(data);
+        const allTasks = await axios.get(`${baseUrl}/tasks`);
+
+        setTaskList(allTasks.data);
       } catch (error) {
         console.error(error);
       }
